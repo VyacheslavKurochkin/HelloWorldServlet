@@ -20,7 +20,7 @@
         <servlet-class>ru.kurochkin.helloworldservlet2.HelloWorldServlet2</servlet-class>
         <init-param>
             <param-name>Init servlet2: Дата</param-name>
-            <param-value>2024-06-16</param-value>
+            <param-value>2024-06-17</param-value>
         </init-param>
         <init-param>
             <param-name>Init servlet2: версия сервлетов</param-name>
