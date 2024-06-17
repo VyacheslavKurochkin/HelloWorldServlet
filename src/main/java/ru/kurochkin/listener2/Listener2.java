@@ -13,6 +13,6 @@ public class Listener2 implements ServletRequestListener {
     @Override
     public void requestInitialized(ServletRequestEvent sre) {
         ServletRequestListener.super.requestInitialized(sre);
-        System.out.println("Listener2: пришел запрос ");
+        System.out.println("Listener2: пришел запрос");
     }
 }

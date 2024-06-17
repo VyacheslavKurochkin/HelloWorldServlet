@@ -14,26 +14,26 @@ public class HelloWorldServlet2 extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        String formattedHtmlTableRow = """
+        String htmlTableRowTemplate = """
                 <tr>
                     <td>%s</td>
                     <td>%s</td>
                 </tr>
                 """;
 
-        StringBuilder parametersHtml = new StringBuilder();
-        Enumeration<String> initParametersNames = getInitParameterNames();
+        StringBuilder parametersHtmlTableRows = new StringBuilder();
+        Enumeration<String> initialParametersNames = getInitParameterNames();
 
-        while (initParametersNames.hasMoreElements()) {
-            String parameterName = initParametersNames.nextElement();
-            parametersHtml.append(formattedHtmlTableRow.formatted(parameterName, getInitParameter(parameterName)));
+        while (initialParametersNames.hasMoreElements()) {
+            String parameterName = initialParametersNames.nextElement();
+            parametersHtmlTableRows.append(htmlTableRowTemplate.formatted(parameterName, getInitParameter(parameterName)));
         }
 
-        Enumeration<String> contextInitParameters = getServletContext().getInitParameterNames();
+        Enumeration<String> contextInitialParameters = getServletContext().getInitParameterNames();
 
-        while (contextInitParameters.hasMoreElements()) {
-            String parameterName = contextInitParameters.nextElement();
-            parametersHtml.append(formattedHtmlTableRow.formatted(parameterName, getServletContext().getInitParameter(parameterName)));
+        while (contextInitialParameters.hasMoreElements()) {
+            String parameterName = contextInitialParameters.nextElement();
+            parametersHtmlTableRows.append(htmlTableRowTemplate.formatted(parameterName, getServletContext().getInitParameter(parameterName)));
         }
 
         resp.getWriter().println("""
@@ -58,7 +58,7 @@ public class HelloWorldServlet2 extends HttpServlet {
                     </table>
                 </body>
                 </html>
-                """.formatted(parametersHtml));
+                """.formatted(parametersHtmlTableRows));
     }
 
     @Override
