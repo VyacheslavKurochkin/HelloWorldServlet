@@ -1,7 +1,5 @@
-package ru.kurochkin.helloworldservlet1;
+package ru.kurochkin.helloworldservlet.servlets;
 
-import jakarta.servlet.annotation.WebInitParam;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -10,14 +8,7 @@ import java.io.IOException;
 import java.io.Serial;
 import java.util.Enumeration;
 
-@WebServlet(
-        value = {"", "/servlet1"},
-        initParams = {
-                @WebInitParam(name = "Параметр1", value = "Значение параметра1"),
-                @WebInitParam(name = "Параметр2", value = "Значение параметра2")
-        }
-)
-public class HelloWorldServlet1 extends HttpServlet {
+public class HelloWorldServlet2 extends HttpServlet {
     @Serial
     private static final long serialVersionUID = 1L;
 
@@ -31,10 +22,10 @@ public class HelloWorldServlet1 extends HttpServlet {
                 """;
 
         StringBuilder parametersHtmlTableRows = new StringBuilder();
-        Enumeration<String> initialParametersNames = getInitParameterNames();
+        Enumeration<String> initParametersNames = getInitParameterNames();
 
-        while (initialParametersNames.hasMoreElements()) {
-            String parameterName = initialParametersNames.nextElement();
+        while (initParametersNames.hasMoreElements()) {
+            String parameterName = initParametersNames.nextElement();
             parametersHtmlTableRows.append(htmlTableRowTemplate.formatted(parameterName, getInitParameter(parameterName)));
         }
 
@@ -49,7 +40,7 @@ public class HelloWorldServlet1 extends HttpServlet {
                 <!DOCTYPE html>
                 <html>
                 <head>
-                    <title>TODO List Servlets</title>
+                    <title>Hello world servlets</title>
                     <meta charset="UTF-8">
                 </head>
                 <body>
@@ -72,6 +63,6 @@ public class HelloWorldServlet1 extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        resp.getWriter().println("Servlet1: method post is OK");
+        resp.getWriter().println("Servlet2: method post is OK");
     }
 }

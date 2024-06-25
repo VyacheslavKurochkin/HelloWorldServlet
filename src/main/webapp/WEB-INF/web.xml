@@ -17,7 +17,7 @@
 
     <servlet>
         <servlet-name>HelloWorldServlet2</servlet-name>
-        <servlet-class>ru.kurochkin.helloworldservlet2.HelloWorldServlet2</servlet-class>
+        <servlet-class>ru.kurochkin.helloworldservlet.servlets.HelloWorldServlet2</servlet-class>
         <init-param>
             <param-name>Init servlet2: Дата</param-name>
             <param-value>2024-06-17</param-value>
@@ -35,14 +35,13 @@
 
     <filter>
         <filter-name>Filter2</filter-name>
-        <filter-class>ru.kurochkin.filter2.Filter2</filter-class>
+        <filter-class>ru.kurochkin.helloworldservlet.filters.Filter2</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>Filter2</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
     <listener>
-        <listener-class>ru.kurochkin.listener2.Listener2</listener-class>
+        <listener-class>ru.kurochkin.helloworldservlet.listeners.RequestListener</listener-class>
     </listener>
-
 </web-app>
