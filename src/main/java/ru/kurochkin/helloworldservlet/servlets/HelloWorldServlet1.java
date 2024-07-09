@@ -38,10 +38,10 @@ public class HelloWorldServlet1 extends HttpServlet {
             parametersHtmlTableRows.append(htmlTableRowTemplate.formatted(parameterName, getInitParameter(parameterName)));
         }
 
-        Enumeration<String> contextInitialParameters = getServletContext().getInitParameterNames();
+        Enumeration<String> contextInitParameters = getServletContext().getInitParameterNames();
 
-        while (contextInitialParameters.hasMoreElements()) {
-            String parameterName = contextInitialParameters.nextElement();
+        while (contextInitParameters.hasMoreElements()) {
+            String parameterName = contextInitParameters.nextElement();
             parametersHtmlTableRows.append(htmlTableRowTemplate.formatted(parameterName, getServletContext().getInitParameter(parameterName)));
         }
 
